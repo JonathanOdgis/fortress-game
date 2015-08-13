@@ -5,15 +5,15 @@ private var agent: NavMeshAgent;
 
 var basicEnemyAttributes : BasicEnemyAttributes;
 
-function Start () 
+function Start ()
 {
 	agent = GetComponent.<NavMeshAgent>();
 }
 
-function Update () 
+function Update ()
 {
 	agent.SetDestination(target.position);
-	
+
 	if (basicEnemyAttributes.getHealth() <= 0)
 	{
 		Destroy(this.gameObject);
@@ -24,6 +24,6 @@ function OnTriggerEnter(other: Collider)
 {
 	if (other.CompareTag("Player Weapon"))
 	{
-		basicEnemyAttributes.changeHealth(-10);	
+		basicEnemyAttributes.setHealth(-10);
 	}
 }
